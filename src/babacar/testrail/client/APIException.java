@@ -9,7 +9,7 @@
  * Copyright Gurock Software GmbH. See license.md for details.
  */
 
-package ApplicationTest;
+package babacar.testrail.client;
  
 public class APIException extends Exception
 {

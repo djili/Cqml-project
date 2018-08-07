@@ -1,5 +1,3 @@
-package ApplicationTest;
-
 /**
  * TestRail API binding for Java (API v2, available since TestRail 3.0)
  *
@@ -10,6 +8,9 @@ package ApplicationTest;
  *
  * Copyright Gurock Software GmbH. See license.md for details.
  */
+ 
+package babacar.testrail.client;
+
 import java.net.URL;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;

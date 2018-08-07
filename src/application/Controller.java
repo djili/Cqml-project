@@ -1,4 +1,5 @@
 package application;
+import babacar.testrail.client.EnvoieTestrail;
 
 import java.io.IOException;
 import java.lang.Math.*;
@@ -212,6 +213,7 @@ public class Controller {
 			 }		
 			 resultField.setText("Le syst�me admet une solution double x0 :"+x0+" S = {"+x0+"}");
 			 model.insertStatement(a+"x�"+"+("+b+")"+"x"+"+("+c+")","Le syst�me admet une solution double x0 :"+x0+" S = {"+x0+"}", new Date());
+			 
 			return;
 		}
 		

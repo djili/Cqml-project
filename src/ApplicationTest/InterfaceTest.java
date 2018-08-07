@@ -1,5 +1,6 @@
 package ApplicationTest;
-
+import babacar.testrail.*;
+import babacar.testrail.client.EnvoieTestrail;
 import application.Controller;
 import groovyjarjarantlr.debug.GuessingEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
@@ -47,7 +49,6 @@ public class InterfaceTest extends ApplicationTest{
     private final String ID_C_TEXT = "#thirdOp";
     private final String ID_RESULT_TEXT = "#resultField";
     private final String ID_BOUTTON_SUPPRIMER = "";
-  
     private double x1, x2;
 
     
@@ -155,10 +156,10 @@ public class InterfaceTest extends ApplicationTest{
         		if(x1==x2) {
         			verifyThat(ID_RESULT_TEXT, TextMatchers.hasText("Le syst�me admet une solution double x0 :"+x1+" S = {"+x2+"}")); 
         		}else {
-        			verifyThat(ID_RESULT_TEXT, TextMatchers.hasText("Les solutions sont x1: "+x1 +"x2: "+x2+" S = {"+x1+" , "+x2+"}")); 
-        		}
+        			verifyThat(ID_RESULT_TEXT, TextMatchers.hasText("Les solutions sont x1: "+x1 +"x2: "+x2+" S = {"+x1+" , "+x2+"}")); }                                                     
         }else {
-        		verifyThat(ID_RESULT_TEXT, TextMatchers.hasText("Le syst�me n'admet pas de solutions dans R"));  
+        		verifyThat(ID_RESULT_TEXT, TextMatchers.hasText("Le syst�me n'admet pas de solutions dans R")); 
+        		
         }
         
         
@@ -211,11 +212,13 @@ public class InterfaceTest extends ApplicationTest{
         delta = (b*b) - 4*a*c;
         if (delta<0)
         {
+        	EnvoieTestrail.envoie(5,"Failed");
             return false;
         }
         else {
             x1 = (-b - Math.sqrt(delta)) / (2 * a);
             x2 = (-b + Math.sqrt(delta)) / (2 * a);
+           EnvoieTestrail.envoie(1,"Success");
             return true;
         }
     }
